@@ -1,7 +1,8 @@
 import React from "react";
+import ListContainer from "../ListContainer";
 
 function Tracklist() {
-  return <></>;
+  return <ListContainer></ListContainer>;
 }
 
 export default Tracklist;
