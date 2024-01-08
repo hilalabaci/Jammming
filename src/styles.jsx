@@ -12,7 +12,7 @@ export const SearchContainer = styled.div`
 export const ListWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   gap:50px;
   padding: 0 60px;

@@ -3,7 +3,7 @@ import { StyledButton } from "./styles";
 
 function Button(props) {
   return (
-    <StyledButton style={{ backgroundColor: props.backgroundColor }}>
+    <StyledButton onClick={props.onClick} style={{ backgroundColor: props.backgroundColor }}>
       {props.text}
     </StyledButton>
   );
