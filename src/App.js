@@ -45,7 +45,14 @@ function App() {
             });
           }}
         />
-        <Tracklist tracks={trackList} />
+        <Tracklist
+          tracks={trackList}
+          deleteFromTrackList={(trackId) => {
+            setTrackList((prevTrackList) => {
+              return prevTrackList.filter((track) => track.id !== trackId);
+            });
+          }}
+        />
       </ListWrapper>
     </Layout>
   );

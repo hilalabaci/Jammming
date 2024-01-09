@@ -12,6 +12,9 @@ function Tracklist(props) {
         title={track.title}
         subTitle={`${track.artist.name} | ${track.album.title}`}
         icon="-"
+        onAction={() => {
+          props.deleteFromTrackList(track.id)
+        }}
       />
     );
   });

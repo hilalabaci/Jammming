@@ -20,4 +20,12 @@ export const SubTitle = styled.div`
 `;
 export const Icon = styled.button`
   align-self: center;
+  background-color: transparent;
+  color: white;
+  outline: none;
+  border: none;
+  font-size: 24px;
+  &:hover{
+    cursor: pointer;
+  }
 `;
