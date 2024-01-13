@@ -2,18 +2,18 @@ import React from "react";
 import ListContainer from "../ListContainer";
 import Track from "../Track";
 import Button from "../Button";
-import { TrackWrapper, ButtonWrapper } from "./styles";
+import { TrackWrapper, ButtonWrapper, PlayListName } from "./styles";
 
 function Tracklist(props) {
   const tracks = props.tracks.map((track) => {
     return (
       <Track
         key={track.id}
-        title={track.title}
-        subTitle={`${track.artist.name} | ${track.album.title}`}
+        title={track.name}
+        subTitle={`${track.artist} | ${track.album}`}
         icon="-"
         onAction={() => {
-          props.deleteFromTrackList(track.id)
+          props.deleteFromTrackList(track.id);
         }}
       />
     );
@@ -21,6 +21,11 @@ function Tracklist(props) {
 
   return (
     <ListContainer>
+      <PlayListName
+        type="text"
+        onChange={props.onPlayListNameChange}
+        value={props.playListName}
+      />
       <TrackWrapper>{tracks}</TrackWrapper>
       <ButtonWrapper>
         <Button text="Save to Spotify" backgroundColor="#5c35e5" />

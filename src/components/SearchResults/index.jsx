@@ -8,8 +8,8 @@ function SearchResults(props) {
     return (
       <Track
         key={track.id}
-        title={track.title}
-        subTitle={`${track.artist.name} | ${track.album.title}`}
+        title={track.name}
+        subTitle={`${track.artist} | ${track.album}`}
         icon="+"
         onAction={() => {
           props.addToTrackList(track)

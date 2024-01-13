@@ -7,18 +7,18 @@ import SearchBar from "./components/SearchBar";
 import SearchResults from "./components/SearchResults";
 import Tracklist from "./components/Tracklist";
 import { ListWrapper, SearchContainer } from "./styles";
+import SpotifyAPI from "./Spotify";
 
 function App() {
   const [searchText, setSearchText] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [trackList, setTrackList] = useState([]);
+  const [playListName, setPlayListName] = useState("");
 
   const searchTracks = async () => {
-    const response = await fetch(
-      `https://cors-anywhere.herokuapp.com/http://api.deezer.com/search?q=${searchText}`
-    );
-    const jsonData = await response.json();
-    setSearchResult(jsonData.data);
+    const results = await SpotifyAPI.search(searchText);
+
+    setSearchResult(results);
   };
 
   return (
@@ -46,6 +46,10 @@ function App() {
           }}
         />
         <Tracklist
+          onPlayListNameChange={(e) => {
+            setPlayListName(e.target.value);
+          }}
+          playListName={playListName}
           tracks={trackList}
           deleteFromTrackList={(trackId) => {
             setTrackList((prevTrackList) => {
